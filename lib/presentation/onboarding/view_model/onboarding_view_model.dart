@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:firstproject/domain/models.dart';
+import 'package:firstproject/domain/models/models.dart';
 import 'package:firstproject/presentation/base/base_view_model.dart';
 import '../../resources/assets_manager.dart';
 import '../../resources/string_manager.dart';
