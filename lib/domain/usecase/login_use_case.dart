@@ -14,7 +14,10 @@ class LoginUseCase implements BaseUseCase<LoginUseCaseInput, Authentication> {
   @override
   Future<Either<Failure, Authentication>> excute(input) async {
     return await _repository.login(LoginRequest(input.email, input.password));
+
+
   }
+
 }
 
 class LoginUseCaseInput {

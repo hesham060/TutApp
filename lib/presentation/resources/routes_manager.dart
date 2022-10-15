@@ -1,5 +1,5 @@
 import 'package:firstproject/presentation/forgot_password/forgot_password.dart';
-import 'package:firstproject/presentation/login_view/login_view.dart';
+import 'package:firstproject/presentation/login_view/view/login_view.dart';
 import 'package:firstproject/presentation/main_view/main_view.dart';
 import 'package:firstproject/presentation/register_view/register_view.dart';
 import 'package:firstproject/presentation/resources/string_manager.dart';
