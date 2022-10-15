@@ -54,22 +54,23 @@ ThemeData getApplicationTheme() {
 
     // text theme
     textTheme: TextTheme(
-        
-        bodyMedium: getMeduimStyle(
-          color: ColorManager.lightGrey,
-          fontSize: FontSize.s14,
-        ),
-        bodyLarge: getReglarStyle(
-          color: ColorManager.grey1,
-        ),
-        bodySmall: getReglarStyle(
-          color: ColorManager.grey,
-        ),
-        headlineLarge: getSemiBoldStyle(color: ColorManager.darkGrey,fontSize: FontSize.s16),
-        displayLarge: getSemiBoldStyle(color: ColorManager.darkGrey,fontSize: FontSize.s16),
-        headlineMedium: getReglarStyle(color: ColorManager.darkGrey,fontSize: FontSize.s14),
-       
-        ),
+      bodyMedium: getMeduimStyle(
+        color: ColorManager.lightGrey,
+        fontSize: FontSize.s14,
+      ),
+      bodyLarge: getReglarStyle(
+        color: ColorManager.grey1,
+      ),
+      bodySmall: getReglarStyle(
+        color: ColorManager.grey,
+      ),
+      headlineLarge: getSemiBoldStyle(
+          color: ColorManager.darkGrey, fontSize: FontSize.s16),
+      displayLarge: getSemiBoldStyle(
+          color: ColorManager.darkGrey, fontSize: FontSize.s16),
+      headlineMedium:
+          getReglarStyle(color: ColorManager.darkGrey, fontSize: FontSize.s14),
+    ),
     // input Decoration theme
 
     inputDecorationTheme: InputDecorationTheme(
@@ -89,15 +90,15 @@ ThemeData getApplicationTheme() {
       ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: ColorManager.primary,
-          width: AppSize.s14,
+          color: ColorManager.grey,
+          width: AppSize.s2,
         ),
         borderRadius: BorderRadius.circular(AppSize.s8),
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: ColorManager.grey,
-          width: AppSize.s14,
+          color: ColorManager.primary,
+          width: AppSize.s2,
         ),
         borderRadius: BorderRadius.circular(AppSize.s8),
       ),
