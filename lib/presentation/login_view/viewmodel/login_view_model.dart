@@ -15,9 +15,9 @@ class LoginViewModel extends BaseViewModel
   // this variable coming from freezed package which save last information like user name and password
   var loginObject = LoginObject("", "");
   // here we make variable of Login usecase
-  // final LoginUseCase _loginUseCase;
-  // LoginViewModel(this._loginUseCase);
-  LoginViewModel();
+  final LoginUseCase _loginUseCase;
+  LoginViewModel(this._loginUseCase);
+  
   // this stream controller to active button if form is valid
   final StreamController _areAllInputsValidstreamController =
       StreamController<void>.broadcast();
@@ -39,18 +39,18 @@ class LoginViewModel extends BaseViewModel
 
   @override
   login() async {
-    // (await _loginUseCase.excute(
-    //         LoginUseCaseInput(loginObject.userName, loginObject.password)))
-    //     .fold(
-    //   (failure) => {
-    //     //left - failure
-    //     print(failure.message)
-    //   },
-    //   (data) => {
-    //     // right -> data (sucess)
-    //     print(data.customer?.name)
-    //   },
-    // );
+    (await _loginUseCase.excute(
+            LoginUseCaseInput(loginObject.userName, loginObject.password)))
+        .fold(
+      (failure) => {
+        //left - failure
+        print(failure.message)
+      },
+      (data) => {
+        // right -> data (sucess)
+        print(data.customer?.name)
+      },
+    );
   }
 
   @override

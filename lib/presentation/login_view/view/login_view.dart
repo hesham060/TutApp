@@ -1,11 +1,12 @@
-import 'package:firstproject/presentation/login_view/viewmodel/longin_viewmodel.dart';
 import 'package:firstproject/presentation/resources/color_manager.dart';
 import 'package:firstproject/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
-
+import '../../../app/di.dart';
 import '../../resources/assets_manager.dart';
 import '../../resources/routes_manager.dart';
 import '../../resources/values_manager.dart';
+import '../viewmodel/login_view_model.dart';
+
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -15,7 +16,8 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  LoginViewModel _ViewModel = LoginViewModel();
+  // here we use dependency injection
+  final LoginViewModel _ViewModel = instance<LoginViewModel>();
   TextEditingController _userNameController = TextEditingController();
   TextEditingController _userPasswordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -96,7 +98,7 @@ class _LoginViewState extends State<LoginView> {
                         decoration: InputDecoration(
                           hintText: AppString.passwordError,
                           labelText: AppString.passwordError,
-                                                    errorText: (snapshot.data ?? true)
+                          errorText: (snapshot.data ?? true)
                               ? null
                               : AppString.passwordError,
                         ),
@@ -128,10 +130,10 @@ class _LoginViewState extends State<LoginView> {
                       }),
                 ),
                 Padding(
-                    padding: const EdgeInsets.only(
-                        top: AppPadding.p8,
-                        left: AppPadding.p20,
-                        right: AppPadding.p20),
+                  padding: const EdgeInsets.only(
+                      top: AppPadding.p8,
+                      left: AppPadding.p20,
+                      right: AppPadding.p20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

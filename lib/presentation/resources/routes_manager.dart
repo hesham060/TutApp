@@ -7,6 +7,7 @@ import 'package:firstproject/presentation/splash/splash_view.dart';
 import 'package:firstproject/presentation/store_details_view/store_details.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/di.dart';
 import '../onboarding/view/onboarding_view.dart';
 
 class Routes {
@@ -28,6 +29,8 @@ class RouteGenerator {
       case Routes.onBoardingRoute:
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
       case Routes.loginRoute:
+      // we bring it here to provide all initial fuctions and variables 
+        initAppModule();
         return MaterialPageRoute(builder: (_) => const LoginView());
       case Routes.registerRoute:
         return MaterialPageRoute(builder: (_) => const ResgisterView());
