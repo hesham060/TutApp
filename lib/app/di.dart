@@ -12,7 +12,7 @@ import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final instance = GetIt.instance;
+final GetIt instance = GetIt.instance;
 
 Future<void> initAppModule() async {
 // app module , its amodule which we put all generic instance of project
@@ -30,9 +30,11 @@ Future<void> initAppModule() async {
   // Dio factory
   instance.registerLazySingleton<DioFactory>(() => DioFactory(instance()));
   // App service client
-  Dio? dio = await instance<DioFactory>().getDio();
+  Dio dio = await instance<DioFactory>().getDio();
+
   instance
-      .registerLazySingleton<AppServiceClient>(() => AppServiceClient(dio!));
+      .registerLazySingleton<AppServiceClients>(() => AppServiceClients(dio));
+
   // remote data source
   instance.registerLazySingleton<RemoteDataSource>(
       () => RemoreDataSourceImpl(instance()));
@@ -41,6 +43,7 @@ Future<void> initAppModule() async {
 
   instance.registerLazySingleton<Repository>(
       () => RepositoryImpl(instance(), instance()));
+      // login object 
 }
 
 loginAppModule() {

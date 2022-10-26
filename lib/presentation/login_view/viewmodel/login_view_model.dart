@@ -16,7 +16,7 @@ class LoginViewModel extends BaseViewModel
   var loginObject = LoginObject("", "");
   // here we make variable of Login usecase
   final LoginUseCase _loginUseCase;
-  LoginViewModel(this._loginUseCase);
+  LoginViewModel(this._loginUseCase,);
   
   // this stream controller to active button if form is valid
   final StreamController _areAllInputsValidstreamController =

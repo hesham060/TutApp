@@ -7,9 +7,8 @@ import '../../resources/routes_manager.dart';
 import '../../resources/values_manager.dart';
 import '../viewmodel/login_view_model.dart';
 
-
 class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+ const  LoginView({Key? key}) : super(key: key);
 
   @override
   State<LoginView> createState() => _LoginViewState();
@@ -17,19 +16,19 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   // here we use dependency injection
-  final LoginViewModel _ViewModel = instance<LoginViewModel>();
-  TextEditingController _userNameController = TextEditingController();
-  TextEditingController _userPasswordController = TextEditingController();
+  final LoginViewModel _viewModel = instance<LoginViewModel>();
+ final TextEditingController _userNameController = TextEditingController();
+ final TextEditingController _userPasswordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   _bind() {
     // here we start
-    _ViewModel.start();
+    _viewModel.start();
     _userNameController
-        .addListener(() => _ViewModel.setUserName(_userNameController.text));
+        .addListener(() => _viewModel.setUserName(_userNameController.text));
 
     _userPasswordController.addListener(
-        () => _ViewModel.setPassword(_userPasswordController.text));
+        () => _viewModel.setPassword(_userPasswordController.text));
   }
 
   @override
@@ -67,7 +66,7 @@ class _LoginViewState extends State<LoginView> {
                   padding: const EdgeInsets.only(
                       left: AppSize.s28, right: AppSize.s28),
                   child: StreamBuilder<bool>(
-                    stream: _ViewModel.outIsUserNameValid,
+                    stream: _viewModel.outIsUserNameValid,
                     builder: (context, snapshot) {
                       return TextFormField(
                         keyboardType: TextInputType.text,
@@ -90,7 +89,7 @@ class _LoginViewState extends State<LoginView> {
                   padding: const EdgeInsets.only(
                       left: AppSize.s28, right: AppSize.s28),
                   child: StreamBuilder<bool>(
-                    stream: _ViewModel.outIsPasswordValid,
+                    stream: _viewModel.outIsPasswordValid,
                     builder: (context, snapshot) {
                       return TextFormField(
                         keyboardType: TextInputType.visiblePassword,
@@ -113,7 +112,7 @@ class _LoginViewState extends State<LoginView> {
                   padding: const EdgeInsets.only(
                       left: AppSize.s28, right: AppSize.s28),
                   child: StreamBuilder<bool>(
-                      stream: _ViewModel.outAreAllInputsValid,
+                      stream: _viewModel.outAreAllInputsValid,
                       builder: (context, snapshot) {
                         return SizedBox(
                           width: double.infinity,
@@ -121,7 +120,7 @@ class _LoginViewState extends State<LoginView> {
                           child: ElevatedButton(
                             onPressed: (snapshot.data ?? false)
                                 ? () {
-                                    _ViewModel.login();
+                                    _viewModel.login();
                                   }
                                 : null,
                             child: const Text(AppString.login),
@@ -172,7 +171,7 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   void dispose() {
-    _ViewModel.dispose();
+    _viewModel.dispose();
     super.dispose();
   }
 }

@@ -30,7 +30,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   }
 
   final PageController _pageController = PageController();
-  int _currentIndex = 0;
+  // int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<SliderViewObject>(

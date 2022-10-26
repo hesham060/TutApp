@@ -15,7 +15,7 @@ class DioFactory {
   final AppPrefreneces
       _appPreferences; // here before same mistake when i make variable coming from Widget name not package name
   DioFactory(this._appPreferences);
-  Future<Dio?> getDio() async {
+  Future<Dio> getDio() async {
     // this making instant of Dio package, variable
     Dio dio = Dio();
     // this section deal with primary data like token, languge, authenticatin, kind of body(pdf, json,html) ,,,,

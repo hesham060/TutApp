@@ -3,7 +3,7 @@
 
 // this is implement it to call appServiceClient 
 
-import 'package:firstproject/data/network/app_Api.dart';
+import 'package:firstproject/data/network/app_api.dart';
 import 'package:firstproject/data/network/requests.dart';
 import 'package:firstproject/data/response/responses.dart';
 abstract class RemoteDataSource {
@@ -11,7 +11,7 @@ abstract class RemoteDataSource {
 }
 
 class RemoreDataSourceImpl implements RemoteDataSource {
- final  AppServiceClient _appServiceClient;
+ final  AppServiceClients _appServiceClient;
   RemoreDataSourceImpl(this._appServiceClient);
 
   Future<AuthenticationResponse> login(LoginRequest loginRequest) async {
